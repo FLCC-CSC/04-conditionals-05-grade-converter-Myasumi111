@@ -22,9 +22,9 @@ def grade_converter():
    print("=" * 5 + " Grade Converter " + "=" * 5)
    percentage = int(input("Enter a numerical grade (1-100): "))
     
-   if percentage >= 100:
+   if percentage > 100:
       print("A+")
-   elif 100 > percentage >= 90:
+   elif 100 >= percentage >= 90:
       print("A")
    elif 90 > percentage >= 80:
       print("B")
