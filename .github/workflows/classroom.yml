@@ -1,0 +1,110 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Test Case 01 [64]
+      id: test-case-01-64
+      uses: classroom-resources/autograding-python-grader@v1
+      with:
+        timeout: 10
+        max-score: 2
+        setup-command: apt-get update && apt-get install -y curl && curl "https://gist.githubusercontent.com/johnghidiuflcc/4eac60d5a1546632486117a284995620/raw"
+          -o test_01.py
+    - name: Test Case 02 [65]
+      id: test-case-02-65
+      uses: classroom-resources/autograding-python-grader@v1
+      with:
+        timeout: 10
+        max-score: 2
+        setup-command: apt-get update && apt-get install -y curl && curl "https://gist.githubusercontent.com/johnghidiuflcc/f5bc1f51899fb64344e7c1552c213236/raw"
+          -o test_01.py
+    - name: Test Case 03 [69]
+      id: test-case-03-69
+      uses: classroom-resources/autograding-python-grader@v1
+      with:
+        timeout: 10
+        max-score: 2
+        setup-command: apt-get update && apt-get install -y curl && curl "https://gist.githubusercontent.com/johnghidiuflcc/db9f252bf29e84398af5badf95e729b3/raw"
+          -o test_01.py
+    - name: Test Case 04 [70]
+      id: test-case-04-70
+      uses: classroom-resources/autograding-python-grader@v1
+      with:
+        timeout: 10
+        max-score: 2
+        setup-command: apt-get update && apt-get install -y curl && curl "https://gist.githubusercontent.com/johnghidiuflcc/9d774039a7e6deaed346c79b590715b7/raw"
+          -o test_01.py
+    - name: Test Case 05 [79]
+      id: test-case-05-79
+      uses: classroom-resources/autograding-python-grader@v1
+      with:
+        timeout: 10
+        max-score: 2
+        setup-command: apt-get update && apt-get install -y curl && curl "https://gist.githubusercontent.com/johnghidiuflcc/167405e41f62f1e0bc1fe360e29a4ea7/raw"
+          -o test_01.py
+    - name: Test Case 06 [80]
+      id: test-case-06-80
+      uses: classroom-resources/autograding-python-grader@v1
+      with:
+        timeout: 10
+        max-score: 2
+        setup-command: apt-get update && apt-get install -y curl && curl "https://gist.githubusercontent.com/johnghidiuflcc/dd0fa81dd6cda2ab8acdcfe23b427e45/raw"
+          -o test_01.py
+    - name: Test Case 07 [89]
+      id: test-case-07-89
+      uses: classroom-resources/autograding-python-grader@v1
+      with:
+        timeout: 10
+        max-score: 2
+        setup-command: apt-get update && apt-get install -y curl && curl "https://gist.githubusercontent.com/johnghidiuflcc/84989c6b86d8d010358aa391b98bf98e/raw"
+          -o test_01.py
+    - name: Test Case 08 [90]
+      id: test-case-08-90
+      uses: classroom-resources/autograding-python-grader@v1
+      with:
+        timeout: 10
+        max-score: 2
+        setup-command: apt-get update && apt-get install -y curl && curl "https://gist.githubusercontent.com/johnghidiuflcc/e458041ae9c0237d7e78412b5148f853/raw"
+          -o test_01.py
+    - name: Test Case 09 [100]
+      id: test-case-09-100
+      uses: classroom-resources/autograding-python-grader@v1
+      with:
+        timeout: 10
+        max-score: 2
+        setup-command: apt-get update && apt-get install -y curl && curl "https://gist.githubusercontent.com/johnghidiuflcc/78052f5935d1badc58bdbc6340c8c904/raw"
+          -o test_01.py
+    - name: Test Case 10 [101]
+      id: test-case-10-101
+      uses: classroom-resources/autograding-python-grader@v1
+      with:
+        timeout: 10
+        max-score: 2
+        setup-command: apt-get update && apt-get install -y curl && curl "https://gist.githubusercontent.com/johnghidiuflcc/c40d520cf72b5f8206fe7755d320c8aa/raw"
+          -o test_01.py
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        TEST-CASE-01-64_RESULTS: "${{steps.test-case-01-64.outputs.result}}"
+        TEST-CASE-02-65_RESULTS: "${{steps.test-case-02-65.outputs.result}}"
+        TEST-CASE-03-69_RESULTS: "${{steps.test-case-03-69.outputs.result}}"
+        TEST-CASE-04-70_RESULTS: "${{steps.test-case-04-70.outputs.result}}"
+        TEST-CASE-05-79_RESULTS: "${{steps.test-case-05-79.outputs.result}}"
+        TEST-CASE-06-80_RESULTS: "${{steps.test-case-06-80.outputs.result}}"
+        TEST-CASE-07-89_RESULTS: "${{steps.test-case-07-89.outputs.result}}"
+        TEST-CASE-08-90_RESULTS: "${{steps.test-case-08-90.outputs.result}}"
+        TEST-CASE-09-100_RESULTS: "${{steps.test-case-09-100.outputs.result}}"
+        TEST-CASE-10-101_RESULTS: "${{steps.test-case-10-101.outputs.result}}"
+      with:
+        runners: test-case-01-64,test-case-02-65,test-case-03-69,test-case-04-70,test-case-05-79,test-case-06-80,test-case-07-89,test-case-08-90,test-case-09-100,test-case-10-101
