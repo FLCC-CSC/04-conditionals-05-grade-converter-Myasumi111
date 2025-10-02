@@ -1,8 +1,8 @@
 # FILE NAME - grade_converter.py
 
-# NAME: 
-# DATE: 
-# BRIEF DESCRIPTION:  
+# NAME: Makiko Michelle Yasumi
+# DATE: October 2, 2025
+# BRIEF DESCRIPTION:  This program inputs the grade percentage and outputs the letter grade.
 
 
 
@@ -15,23 +15,28 @@
 
 ########## ENTER YER CODE BELOW THIS LINE ##########
 
-print('===== Grade Converter =====')
+def main():
+    grade_converter()
 
-percent = int(input('Enter a numerical grade (1-100): '))
+def grade_converter():
+   print("=" * 5 + " Grade Converter " + "=" * 5)
+   percentage = int(input("Enter a numerical grade (1-100): "))
+    
+   if percentage > 100:
+      print("A+")
+   elif 100 >= percentage >= 90:
+      print("A")
+   elif 90 > percentage >= 80:
+      print("B")
+   elif 80 > percentage >= 70:
+      print("C")
+   elif 70 > percentage >= 65:
+      print("D")
+   else:
+      print("F")
 
-if percent > 100:
-    print('A+')
-elif percent >= 90:
-    print('A')
-elif percent >= 80:
-    print('B')
-elif percent >= 70:
-    print('C')
-elif percent >= 65:
-    print('D')
-else:
-    print('F')
-
+main()
+            
 ########### END YER CODE ABOVE THIS LINE ###########
 
     
@@ -85,10 +90,6 @@ D
 1. What is something you would tell a future student to be careful about when
    doing this lab?
 
-
-
-
-
-
+Ensure to uses >= and >.
 
 '''
