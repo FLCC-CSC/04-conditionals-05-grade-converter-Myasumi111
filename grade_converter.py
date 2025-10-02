@@ -24,13 +24,13 @@ def grade_converter():
     
    if percentage >= 100:
       print("A+")
-   elif percentage in range (90,100):
+   elif 100 > percentage >= 90:
       print("A")
-   elif percentage in range (80,90):
+   elif 90 > percentage >= 80:
       print("B")
-   elif percentage in range (70,80):
+   elif 80 > percentage >= 70:
       print("C")
-   elif percentage in range (65,70):
+   elif 70 > percentage >= 65:
       print("D")
    else:
       print("F")
@@ -90,7 +90,6 @@ D
 1. What is something you would tell a future student to be careful about when
    doing this lab?
 
-When entering the parameter for the range function, the second number is exclusive. 
-Ensure the else statement uses >=, not >. Otherwise, when a user inputs 100, it will output "F".
+Ensure to uses >= and >.
 
 '''
