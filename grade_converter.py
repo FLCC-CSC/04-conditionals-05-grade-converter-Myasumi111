@@ -1,8 +1,8 @@
 # FILE NAME - grade_converter.py
 
-# NAME: 
-# DATE: 
-# BRIEF DESCRIPTION:  
+# NAME: Makiko Michelle Yasumi
+# DATE: October 2, 2025
+# BRIEF DESCRIPTION:  This program inputs the grade percentage and outputs the letter grade.
 
 
 
@@ -15,23 +15,28 @@
 
 ########## ENTER YER CODE BELOW THIS LINE ##########
 
-print('===== Grade Converter =====')
+def main():
+    grade_converter()
 
-percent = int(input('Enter a numerical grade (1-100): '))
+def grade_converter():
+   print("=" * 5 + " Grade Converter " + "=" * 5)
+   percentage = int(input("Enter a numerical grade (1-100): "))
+    
+   if percentage >= 100:
+      print("A+")
+   elif percentage in range (90,100):
+      print("A")
+   elif percentage in range (80,90):
+      print("B")
+   elif percentage in range (70,80):
+      print("C")
+   elif percentage in range (65,70):
+      print("D")
+   else:
+      print("F")
 
-if percent > 100:
-    print('A+')
-elif percent >= 90:
-    print('A')
-elif percent >= 80:
-    print('B')
-elif percent >= 70:
-    print('C')
-elif percent >= 65:
-    print('D')
-else:
-    print('F')
-
+main()
+            
 ########### END YER CODE ABOVE THIS LINE ###########
 
     
@@ -85,10 +90,7 @@ D
 1. What is something you would tell a future student to be careful about when
    doing this lab?
 
-
-
-
-
-
+When entering the parameter for the range function, the second number is exclusive. 
+Ensure the else statement uses >=, not >. Otherwise, when a user inputs 100, it will output "F".
 
 '''
